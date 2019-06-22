@@ -3,4 +3,7 @@
     <string name="there_is_nothing">Тут пусто :с</string>
     <string name="my_goals">Мои цели</string>
     <string name="create_goal">Создать цель</string>
+    <string name="goal_name">Название твоей цели</string>
+    <string name="goal_date">Дата</string>
+    <string name="create">Создать</string>
 </resources>
