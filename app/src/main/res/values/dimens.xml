@@ -4,4 +4,6 @@
     <dimen name="edit_text_height">58dp</dimen>
     <dimen name="button_height">58dp</dimen>
     <dimen name="text_there_is_nothing">18sp</dimen>
+    <dimen name="text_goal_name">20sp</dimen>
+    <dimen name="text_goal_date">18sp</dimen>
 </resources>

@@ -25,6 +25,8 @@ public class AddGoalActivity extends AppCompatActivity {
     private Button createGoalButton;
     private Calendar calendar;
     private DatePickerDialog.OnDateSetListener dateSetListener;
+    private static final String GOAL_NAME_KEY = "goal_name";
+    private static final String GOAL_DATE_KEY = "goal_date";
 
 
     @Override
@@ -77,22 +79,23 @@ public class AddGoalActivity extends AppCompatActivity {
                 boolean nameFlag = false;
                 boolean dateFlag = false;
                 // Check if Name edit text field is empty
-                if(TextUtils.isEmpty(goalNameEditText.getText())) {
+                if (TextUtils.isEmpty(goalNameEditText.getText())) {
                     Toast.makeText(AddGoalActivity.this, R.string.goal_name_empty, Toast.LENGTH_SHORT).show();
                 } else {
                     nameFlag = true;
-                    goalsIntent.putExtra("goal name", goalNameEditText.getText());
+                    goalsIntent.putExtra(GOAL_NAME_KEY, goalNameEditText.getText().toString());
                 }
                 // Check if Date edit text field is empty
-                if(TextUtils.isEmpty(goalDateEditText.getText())) {
+                if (TextUtils.isEmpty(goalDateEditText.getText())) {
                     Toast.makeText(AddGoalActivity.this, R.string.goal_date_empty, Toast.LENGTH_SHORT).show();
                 } else {
                     dateFlag = true;
-                    goalsIntent.putExtra("goal date", goalDateEditText.getText());
+                    goalsIntent.putExtra(GOAL_DATE_KEY, goalDateEditText.getText().toString());
                 }
                 // Only if both fields are not empty
                 if (nameFlag && dateFlag) {
-                    startActivity(goalsIntent);
+                    setResult(RESULT_OK, goalsIntent);
+                    finish();
                 }
             }
         });

@@ -19,13 +19,4 @@ public class Goal {
     public String getGoalDate() {
         return goalDate;
     }
-
-
-    public void setGoalName(String goalName) {
-        this.goalName = goalName;
-    }
-
-    public void setGoalDate(String goalDate) {
-        this.goalDate = goalDate;
-    }
 }
