@@ -25,7 +25,7 @@ public class GoalsRepository {
     }
 
 
-    public void addNewGoalToList(String goalName, String goalDate) {
+    public void addNewGoalToList(String goalName, long goalDate) {
         goalsList.add(new Goal(goalName, goalDate));
     }
 }

@@ -46,7 +46,7 @@ GoalsActivity extends AppCompatActivity {
                 nothingTextView.setVisibility(View.GONE);
                 goalsRepository.addNewGoalToList(
                         intentFromAddGoal.getStringExtra(GOAL_NAME_KEY),
-                        intentFromAddGoal.getStringExtra(GOAL_DATE_KEY));
+                        intentFromAddGoal.getLongExtra(GOAL_DATE_KEY, 0));
                 rvAdapter.updateDataSet(goalsRepository.getGoalsList());
             }
         }

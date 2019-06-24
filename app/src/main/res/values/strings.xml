@@ -8,4 +8,5 @@
     <string name="create">Создать</string>
     <string name="goal_name_empty">Введите название цели</string>
     <string name="goal_date_empty">Укажите дату достижения цели</string>
+    <string name="text_goals_done">Дата цели достигнута!</string>
 </resources>

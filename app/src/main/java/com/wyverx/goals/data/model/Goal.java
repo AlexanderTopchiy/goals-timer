@@ -3,10 +3,10 @@ package com.wyverx.goals.data.model;
 public class Goal {
 
     private String goalName;
-    private String goalDate;
+    private long goalDate;
 
 
-    public Goal(String goalName, String goalDate) {
+    public Goal(String goalName, long goalDate) {
         this.goalName = goalName;
         this.goalDate = goalDate;
     }
@@ -16,7 +16,7 @@ public class Goal {
         return goalName;
     }
 
-    public String getGoalDate() {
+    public long getGoalDate() {
         return goalDate;
     }
 }

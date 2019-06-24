@@ -13,18 +13,21 @@ import android.widget.Toast;
 
 import com.wyverx.goals.R;
 import com.wyverx.goals.goals.GoalsActivity;
+import com.wyverx.goals.utils.DateUtils;
 
-import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Locale;
+import java.util.Date;
 
 public class AddGoalActivity extends AppCompatActivity {
 
     private TextInputEditText goalNameEditText;
     private TextInputEditText goalDateEditText;
     private Button createGoalButton;
+
     private Calendar calendar;
+    private Date goalDate;
     private DatePickerDialog.OnDateSetListener dateSetListener;
+
     private static final String GOAL_NAME_KEY = "goal_name";
     private static final String GOAL_DATE_KEY = "goal_date";
 
@@ -66,9 +69,9 @@ public class AddGoalActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                SimpleDateFormat dateFormatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
+                goalDate = calendar.getTime();
 
-                goalDateEditText.setText(dateFormatter.format(calendar.getTime()));
+                goalDateEditText.setText(DateUtils.dateFormatter(goalDate));
             }
         };
 
@@ -82,15 +85,15 @@ public class AddGoalActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(goalNameEditText.getText())) {
                     Toast.makeText(AddGoalActivity.this, R.string.goal_name_empty, Toast.LENGTH_SHORT).show();
                 } else {
-                    nameFlag = true;
                     goalsIntent.putExtra(GOAL_NAME_KEY, goalNameEditText.getText().toString());
+                    nameFlag = true;
                 }
                 // Check if Date edit text field is empty
                 if (TextUtils.isEmpty(goalDateEditText.getText())) {
                     Toast.makeText(AddGoalActivity.this, R.string.goal_date_empty, Toast.LENGTH_SHORT).show();
                 } else {
+                    goalsIntent.putExtra(GOAL_DATE_KEY, goalDate.getTime());
                     dateFlag = true;
-                    goalsIntent.putExtra(GOAL_DATE_KEY, goalDateEditText.getText().toString());
                 }
                 // Only if both fields are not empty
                 if (nameFlag && dateFlag) {
