@@ -7,7 +7,6 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 
@@ -15,7 +14,8 @@ import com.wyverx.goals.R;
 import com.wyverx.goals.addgoal.AddGoalActivity;
 import com.wyverx.goals.data.GoalsRepository;
 
-public class GoalsActivity extends AppCompatActivity {
+public class
+GoalsActivity extends AppCompatActivity {
 
     private TextView nothingTextView;
     private RecyclerView recyclerView;
@@ -47,10 +47,7 @@ public class GoalsActivity extends AppCompatActivity {
                 goalsRepository.addNewGoalToList(
                         intentFromAddGoal.getStringExtra(GOAL_NAME_KEY),
                         intentFromAddGoal.getStringExtra(GOAL_DATE_KEY));
-                Log.v("Add Goal", "Add new goal");
                 rvAdapter.updateDataSet(goalsRepository.getGoalsList());
-                Log.v("Update RV", "Updated RV");
-                Log.v("Size list", Integer.toString(goalsRepository.getGoalsList().size()));
             }
         }
     }

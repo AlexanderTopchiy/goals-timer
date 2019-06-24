@@ -9,15 +9,14 @@ import com.wyverx.goals.data.model.Goal;
 
 public class GoalViewHolder extends RecyclerView.ViewHolder {
 
-    private final TextView goalNameTextView;
-    private final TextView goalDateTextView;
+    private TextView goalNameTextView;
+    private TextView goalDateTextView;
 
 
     GoalViewHolder(View view) {
         super(view);
-        final View item = view;
-        goalNameTextView = item.findViewById(R.id.text_view_goal_name);
-        goalDateTextView = item.findViewById(R.id.text_view_goal_date);
+        goalNameTextView = view.findViewById(R.id.text_view_goal_name);
+        goalDateTextView = view.findViewById(R.id.text_view_goal_date);
     }
 
 

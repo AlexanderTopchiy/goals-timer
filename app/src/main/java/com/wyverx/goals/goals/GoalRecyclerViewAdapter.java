@@ -42,8 +42,8 @@ public class GoalRecyclerViewAdapter extends RecyclerView.Adapter<GoalViewHolder
 
 
     public void updateDataSet(List<Goal> goals) {
-        goalsList.clear();
-        goalsList.addAll(goals);
+        this.goalsList.clear();
+        this.goalsList.addAll(goals);
         notifyDataSetChanged();
     }
 }
