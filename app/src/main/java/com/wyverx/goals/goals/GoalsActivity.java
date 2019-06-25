@@ -1,6 +1,7 @@
 package com.wyverx.goals.goals;
 
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
@@ -18,9 +19,13 @@ public class
 GoalsActivity extends AppCompatActivity {
 
     private TextView nothingTextView;
+
     private RecyclerView recyclerView;
     private GoalRecyclerViewAdapter rvAdapter;
+    private RecyclerView.LayoutManager rvLayoutManager;
+
     private GoalsRepository goalsRepository;
+
     private static final int ADD_GOAL_INTENT_ID = 1;
     private static final String GOAL_NAME_KEY = "goal_name";
     private static final String GOAL_DATE_KEY = "goal_date";
@@ -58,7 +63,8 @@ GoalsActivity extends AppCompatActivity {
 
         recyclerView = findViewById(R.id.rv_goals_list);
         rvAdapter = new GoalRecyclerViewAdapter();
-        recyclerView.setLayoutManager(new LinearLayoutManager(GoalsActivity.this));
+        rvLayoutManager = new LinearLayoutManager(GoalsActivity.this);
+        recyclerView.setLayoutManager(rvLayoutManager);
         recyclerView.setAdapter(rvAdapter);
 
         FloatingActionButton fab = findViewById(R.id.fab);

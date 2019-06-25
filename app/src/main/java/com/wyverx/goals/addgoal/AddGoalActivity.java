@@ -25,7 +25,7 @@ public class AddGoalActivity extends AppCompatActivity {
     private Button createGoalButton;
 
     private Calendar calendar;
-    private Date goalDate;
+    private long goalDate;
     private DatePickerDialog.OnDateSetListener dateSetListener;
 
     private static final String GOAL_NAME_KEY = "goal_name";
@@ -40,6 +40,20 @@ public class AddGoalActivity extends AppCompatActivity {
         setTitle(R.string.create_goal);
 
         initUI();
+    }
+
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        outState.putLong("date", goalDate);
+        super.onSaveInstanceState(outState);
+    }
+
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        goalDate = savedInstanceState.getLong("date");
     }
 
 
@@ -69,7 +83,7 @@ public class AddGoalActivity extends AppCompatActivity {
                 calendar.set(Calendar.MONTH, month);
                 calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth);
 
-                goalDate = calendar.getTime();
+                goalDate = calendar.getTime().getTime();
 
                 goalDateEditText.setText(DateUtils.dateFormatter(goalDate));
             }
@@ -92,7 +106,7 @@ public class AddGoalActivity extends AppCompatActivity {
                 if (TextUtils.isEmpty(goalDateEditText.getText())) {
                     Toast.makeText(AddGoalActivity.this, R.string.goal_date_empty, Toast.LENGTH_SHORT).show();
                 } else {
-                    goalsIntent.putExtra(GOAL_DATE_KEY, goalDate.getTime());
+                    goalsIntent.putExtra(GOAL_DATE_KEY, goalDate);
                     dateFlag = true;
                 }
                 // Only if both fields are not empty

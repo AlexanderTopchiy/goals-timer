@@ -6,7 +6,7 @@ import java.util.Locale;
 
 public class DateUtils {
 
-    public static String dateFormatter(Date date) {
+    public static String dateFormatter(long date) {
         SimpleDateFormat dateFormatter = new SimpleDateFormat("dd.MM.yyyy", Locale.ENGLISH);
         return dateFormatter.format(date);
     }
